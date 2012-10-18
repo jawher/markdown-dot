@@ -1,0 +1,5 @@
+*.pyc
+build/
+dist/
+Markdown_dot_extension.egg-info/*
+temp/
