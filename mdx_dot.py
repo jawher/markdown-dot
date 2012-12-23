@@ -39,7 +39,7 @@ class DotBlockPreprocessor(markdown.preprocessors.Preprocessor):
             if m:
                 out = m.group('out')
                 out_file = "content/images/graphviz/" + out
-                img_href = "images/graphviz/" + out
+                img_href = "static/images/graphviz/" + out
                 format = os.path.splitext(out)[1][1:].strip()
                 code = m.group('code')
                 cache_marker = "cache/" + out + "-" + md5.new(code).hexdigest()
