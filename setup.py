@@ -2,9 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name = "Markdown dot extension",
-    version = "0.1.2",
+    version = "0.1.3",
     py_modules = ["mdx_dot"],
-    install_requires = ['Markdown>=2.2.0'],
+    install_requires = ['Markdown>=2.5.0'],
     author = "Jawher",
     author_email = "me@example.com",
     description = "Markdown dot extension",

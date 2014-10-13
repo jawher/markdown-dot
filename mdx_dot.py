@@ -28,7 +28,7 @@ class DotBlockExtension(markdown.Extension):
 class DotBlockPreprocessor(markdown.preprocessors.Preprocessor):
 
     def __init__(self, md):
-        markdown.preprocessors.Preprocessor.__init__(self, md)
+        super(DotBlockPreprocessor, self).__init__(md)
 
     def run(self, lines):
         """ Match and store Fenced Code Blocks in the HtmlStash. """
@@ -72,8 +72,8 @@ def ensure_dir_exists(f):
         os.makedirs(d)
 
 
-def makeExtension(configs=None):
-    return DotBlockExtension(configs=configs)
+def makeExtension(*args, **kwargs):
+    return DotBlockExtension(*args, **kwargs)
 
 
 if __name__ == "__main__":
