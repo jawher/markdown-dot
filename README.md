@@ -32,6 +32,9 @@ Activate the `dot` extension and place the graph defintions in your markup like 
 %}
 ```
 
+The block above will then be replaced with an `img` tag pointing to the generated png file.
+
+If the file name starts with a `!`, the image will still be generated but no `img` tag will be included in the result.
 
 # Troubleshooting
 

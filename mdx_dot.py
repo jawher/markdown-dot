@@ -38,6 +38,11 @@ class DotBlockPreprocessor(markdown.preprocessors.Preprocessor):
             m = FENCED_BLOCK_RE.search(text)
             if m:
                 out = m.group('out')
+                show = True
+                if out[0]=='!':
+                    show=False
+                    out=out[1:]
+
                 out_file = "content/images/graphviz/" + out
                 img_href = "images/graphviz/" + out
                 format = os.path.splitext(out)[1][1:].strip()
@@ -59,8 +64,12 @@ class DotBlockPreprocessor(markdown.preprocessors.Preprocessor):
                 else:
                     print("pass " + out)
 
-                img = "![" + out + "](/" + img_href + ")"
-                text = '%s\n%s\n%s' % (text[:m.start()], img, text[m.end():])
+                if show:
+                    img = "![" + out + "](/" + img_href + ")"
+                    text = '%s\n%s\n%s' % (text[:m.start()], img, text[m.end():])
+                else:
+                    text = '%s\n%s' % (text[:m.start()], text[m.end():])
+
             else:
                 break
         return text.split("\n")
